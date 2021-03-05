@@ -18,6 +18,12 @@ describe("get requests", () => {
  });
 });
 
+it("should return error if id not exist", async () => {
+ const res = await request(app).get("/sNDmPXmFd123");
+ expect(res.status).toBe(404);
+ expect(res.text).toBe("url not found");
+});
+
 describe("post requests", () => {
  it("should response with original url and short url with id", async () => {
   const res = await request(app)
@@ -38,9 +44,9 @@ describe("post requests", () => {
 });
 
 // get
-// 1) should get original url by id
-// 2) should return error if short id dosnt excist
-// 4) should return error if the short id is invalid
+// 1) should get original url by id v
+// 2) should return error if short id dosnt exist
+// 3) should return error if the short id is invalid
 
 // post
 // 1)should response with original url and short url

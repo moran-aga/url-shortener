@@ -40,9 +40,13 @@ class DataBase {
    id: shortId.generate(),
   };
   this.items.push(item);
-  fs.writeFile("data.json", JSON.stringify(this.items), function (err) {
-   console.log("data saved");
-  });
+  fs.writeFile(
+   "data.json",
+   JSON.stringify(this.items, null, 4),
+   function (err) {
+    console.log("data saved");
+   }
+  );
   return item.id;
  }
 
@@ -51,12 +55,13 @@ class DataBase {
   for (let item of this.items) {
    if (id === item.id) {
     item.redirectCount += 1;
-    fs.writeFile("data.json", JSON.stringify(this.items));
+    fs.writeFile("data.json", JSON.stringify(this.items, null, 4));
     return item.originalUrl;
    }
   }
+  return "id not exist";
 
-  return null;
+  // return null;
  }
 
  static async getUrlData(id) {

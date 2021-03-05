@@ -26,7 +26,11 @@ app.post("/api/shorturl/new", async (req, res) => {
 app.get("/:id", async (req, res) => {
  const id = req.params.id;
  let url = await DataBase.getOriginalUrl(id);
- res.redirect(url);
+ if (url === "id not exist") {
+  return res.status(404).send("url not found");
+ } else {
+  return res.redirect(url);
+ }
 });
 
 app.get("/api/statistic/:id", async (req, res) => {
