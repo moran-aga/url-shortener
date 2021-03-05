@@ -1,8 +1,17 @@
 const shortId = require("shortid");
+const validUrl = require("valid-url");
 const fs = require("fs").promises;
 
 class DataBase {
  static items = [];
+
+ //   static async isValidURL() {
+ //       if (validUrl.isUri(url)) {
+ //        console.log("Looks like an URI");
+ //       } else {
+ //        console.log("Not a URI");
+ //       }
+ //   }
 
  static async readSavedURLs() {
   const URLdata = await fs.readFile("data.json", "utf8", function (err, data) {
