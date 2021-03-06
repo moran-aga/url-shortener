@@ -40,7 +40,11 @@ app.get("/:id", async (req, res) => {
 app.get("/api/statistic/:id", async (req, res) => {
  const { id } = req.params;
  let data = await DataBase.getUrlData(id);
- res.status(200).json(data);
+ if (data === "id not exist") {
+  return res.status(404).send("id not exist");
+ } else {
+  res.status(200).json(data);
+ }
 });
 
 module.exports = app;

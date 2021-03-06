@@ -3,9 +3,6 @@ const validUrl = require("valid-url");
 const fs = require("fs").promises;
 
 const ValidUrl = (url) => validurl.isUri(url);
-// if (!validUrl.isUri(url)) res.status(418).send("InvalidURL");
-
-// console.log(isValidURL("invalid.url.com"));
 
 class DataBase {
  static items = [];
@@ -88,7 +85,7 @@ class DataBase {
     return item;
    }
   }
-  return null;
+  return "id not exist";
  }
 }
 

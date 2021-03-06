@@ -16,12 +16,18 @@ describe("get requests", () => {
   expect(res.status).toBe(302);
   expect(res.header.location).toEqual("https://www.google.com");
  });
-});
 
-it("should return error if id not exist", async () => {
- const res = await request(app).get("/sNDmPXmFd123");
- expect(res.status).toBe(404);
- expect(res.text).toBe("url not found");
+ it("should return error if id not exist", async () => {
+  const res = await request(app).get("/sNDmPXmFd123");
+  expect(res.status).toBe(404);
+  expect(res.text).toBe("url not found");
+ });
+
+ it("statistic request should return error if id not exist", async () => {
+  const res = await request(app).get("/api/statistic/LRGxzIL9L12312");
+  expect(res.status).toBe(404);
+  expect(res.text).toBe("id not exist");
+ });
 });
 
 describe("post requests", () => {
