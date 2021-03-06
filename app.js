@@ -1,9 +1,14 @@
 require("dotenv").config();
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const { urlencoded } = require("body-parser");
 const DataBase = require("./database");
 const app = express();
+const pug = require("pug");
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
 
 app.use(cors());
 app.use("/public", express.static(`./public`));
@@ -12,6 +17,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
  res.sendFile(__dirname + "/views/index.html");
+ //  res.render("index");
 });
 
 app.post("/api/shorturl/new", async (req, res) => {
@@ -44,6 +50,12 @@ app.get("/api/statistic/:id", async (req, res) => {
  } else {
   res.status(200).json(data);
  }
+});
+
+app.get("/api/statistic", async (req, res) => {
+ let data = await DataBase.getALLData();
+ console.log(data);
+ res.render("statistic", { data: JSON.stringify(data) });
 });
 
 module.exports = app;

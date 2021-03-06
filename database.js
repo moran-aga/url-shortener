@@ -59,6 +59,15 @@ class DataBase {
   }
   return "id not exist";
  }
+
+ static async getALLData() {
+  await this.readSavedURLs();
+  //   for (let item of this.items) {
+  //    console.log(item);
+  //    return item;
+  //   }
+  return this.items;
+ }
 }
 
 module.exports = DataBase;
