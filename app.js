@@ -17,14 +17,18 @@ app.get("/", (req, res) => {
 
 app.post("/api/shorturl/new", async (req, res) => {
  let id = await DataBase.addUrl(req.body);
- res.status(200).json({
-  original_URL: req.body.url,
-  short_URL: `http://localhost:3000/${id}`,
- });
+ if (id === "invalid url") {
+  return res.status(400).send("invalid url");
+ } else {
+  res.status(200).json({
+   original_URL: req.body.url,
+   short_URL: `http://localhost:3000/${id}`,
+  });
+ }
 });
 
 app.get("/:id", async (req, res) => {
- const id = req.params.id;
+ const { id } = req.params;
  let url = await DataBase.getOriginalUrl(id);
  if (url === "id not exist") {
   return res.status(404).send("url not found");
@@ -34,7 +38,7 @@ app.get("/:id", async (req, res) => {
 });
 
 app.get("/api/statistic/:id", async (req, res) => {
- const id = req.params.id;
+ const { id } = req.params;
  let data = await DataBase.getUrlData(id);
  res.status(200).json(data);
 });

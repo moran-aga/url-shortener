@@ -2,15 +2,10 @@ const shortId = require("shortid");
 const validUrl = require("valid-url");
 const fs = require("fs").promises;
 
-function isValidURL(url) {
- if (validUrl.isUri(url)) {
-  console.log("valid");
- } else {
-  console.log("Not valid");
- }
-}
+const ValidUrl = (url) => validurl.isUri(url);
+// if (!validUrl.isUri(url)) res.status(418).send("InvalidURL");
 
-console.log(isValidURL("invalid.url.com"));
+// console.log(isValidURL("invalid.url.com"));
 
 class DataBase {
  static items = [];
@@ -28,7 +23,9 @@ class DataBase {
 
  static async addUrl(body) {
   await this.readSavedURLs();
-
+  if (!validUrl.isUri(body.url)) {
+   return "invalid url";
+  }
   for (let item of this.items) {
    if (body.url === item.originalUrl) {
     return item.id;

@@ -31,16 +31,15 @@ describe("post requests", () => {
    .type("form")
    .send({ url: "https://www.google.com" });
   expect(res.status).toBe(200);
-  console.log(res);
   expect(res.body).toEqual(exceptedRes);
  });
 
- //  it("should return error if the orginial url is invalid", async () => {
- //   const res = await request(app)
- //    .post("/api/shorturl/new")
- //    .send("https://www.google.commmm");
- //   expect(res.status).toBe(400);
- //  });
+ it("should return error if the orginial url is invalid", async () => {
+  const res = await request(app)
+   .post("/api/shorturl/new")
+   .send("invalid.url.com");
+  expect(res.status).toBe(400);
+ });
 });
 
 // get
