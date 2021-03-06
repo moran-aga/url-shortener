@@ -8,15 +8,21 @@
  </head>
 
  <body>
-  <h1>URL Shortener Microservice</h1>
+  <h1>URL Shortener</h1>
   <main>
    <section>
+    <h2>Paste the URL to be shortened</h2>
     <form action="http://localhost:3000/api/shorturl/new" method="POST">
      <fieldset>
       <legend>URL Shortener</legend>
       <label for="url_input">URL:</label>
-      <input id="url_input" type="url" name="url" placeholder="url" />
-      <input type="submit" value="POST URL" />
+      <input
+       id="url_input"
+       type="url"
+       name="url"
+       placeholder="Enter the link here"
+      />
+      <input id="submit" type="submit" value="POST URL" />
      </fieldset>
     </form>
    </section>
