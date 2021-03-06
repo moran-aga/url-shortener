@@ -2,16 +2,18 @@ const shortId = require("shortid");
 const validUrl = require("valid-url");
 const fs = require("fs").promises;
 
+function isValidURL(url) {
+ if (validUrl.isUri(url)) {
+  console.log("valid");
+ } else {
+  console.log("Not valid");
+ }
+}
+
+console.log(isValidURL("invalid.url.com"));
+
 class DataBase {
  static items = [];
-
- //   static async isValidURL() {
- //       if (validUrl.isUri(url)) {
- //        console.log("Looks like an URI");
- //       } else {
- //        console.log("Not a URI");
- //       }
- //   }
 
  static async readSavedURLs() {
   const URLdata = await fs.readFile("data.json", "utf8", function (err, data) {
@@ -33,8 +35,26 @@ class DataBase {
    }
   }
 
+  let pad = function (num) {
+   return ("00" + num).slice(-2);
+  };
+  let date;
+  date = new Date();
+  date =
+   date.getUTCFullYear() +
+   "-" +
+   pad(date.getUTCMonth() + 1) +
+   "-" +
+   pad(date.getUTCDate()) +
+   " " +
+   pad(date.getUTCHours()) +
+   ":" +
+   pad(date.getUTCMinutes()) +
+   ":" +
+   pad(date.getUTCSeconds());
+
   let item = {
-   creationDate: Date.now(),
+   creationDate: date,
    redirectCount: 0,
    originalUrl: body.url,
    id: shortId.generate(),

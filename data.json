@@ -1,49 +1,13 @@
 [
     {
-        "creationDate": 1614871163398,
-        "redirectCount": 17,
+        "creationDate": "2021-03-06 11:03:20",
+        "redirectCount": 4,
         "originalUrl": "https://www.google.com",
-        "id": "sNDmPXmFd"
+        "id": "LRGxzIL9L"
     },
     {
-        "creationDate": 1614873122981,
+        "creationDate": "2021-03-06 11:36:31",
         "redirectCount": 0,
-        "originalUrl": "https://github.com/suvelocity/cyber4s-final1-boilerplate-url-shortener",
-        "id": "etf49FI9l"
-    },
-    {
-        "creationDate": 1614873593970,
-        "redirectCount": 0,
-        "originalUrl": "https://www.youtube.com/watch?v=5B587bQ-TNg&ab_channel=WebDevSimplified",
-        "id": "mw_O1cQaJ"
-    },
-    {
-        "creationDate": 1614964814519,
-        "redirectCount": 0,
-        "id": "fCPnBdmYg"
-    },
-    {
-        "creationDate": 1614976502446,
-        "redirectCount": 0,
-        "originalUrl": "https://url-shortener-microservice.freecodecamp.rocks/",
-        "id": "MQM8VaV7K"
-    },
-    {
-        "creationDate": 1614978672570,
-        "redirectCount": 0,
-        "originalUrl": "https://www.google.commmmmmmmmmmm",
-        "id": "h0TME9t08"
-    },
-    {
-        "creationDate": 1614979814130,
-        "redirectCount": 0,
-        "originalUrl": "https://dev.to/nedsoft/testing-nodejs-express-api-with-jest-and-supertest-1km6",
-        "id": "vF6NZlSNO"
-    },
-    {
-        "creationDate": 1614980742254,
-        "redirectCount": 0,
-        "originalUrl": "https://www.youtube.com/watch?v=r8sPUw4uxAI&ab_channel=Galvanize",
-        "id": "1aaHOaznO"
+        "id": "Mf2LrPIIX"
     }
 ]
