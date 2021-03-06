@@ -10,6 +10,13 @@ const exceptedRes = {
  short_URL: "http://localhost:3000/LRGxzIL9L",
 };
 
+const expectedStatisticRes = {
+ creationDate: "2021-03-06 11:03:20",
+ redirectCount: 11 + 1,
+ originalUrl: "https://www.google.com",
+ id: "LRGxzIL9L",
+};
+
 describe("get requests", () => {
  it("should redirect to original url by id", async () => {
   const res = await request(app).get("/LRGxzIL9L");
@@ -28,6 +35,12 @@ describe("get requests", () => {
   expect(res.status).toBe(404);
   expect(res.text).toBe("id not exist");
  });
+
+ it("statistic request should return with id information", async () => {
+  const res = await request(app).get("/api/statistic/LRGxzIL9L");
+  expect(res.status).toBe(200);
+  //   expect(res.body).toBe(expectedStatisticRes);
+ });
 });
 
 describe("post requests", () => {
@@ -38,6 +51,15 @@ describe("post requests", () => {
    .send({ url: "https://www.google.com" });
   expect(res.status).toBe(200);
   expect(res.body).toEqual(exceptedRes);
+ });
+
+ it("should add new URL item to the database", async () => {
+  const res = await request(app)
+   .post("/api/shorturl/new")
+   .type("form")
+   .send({ url: "https://www.youtube.com" });
+  expect(res.status).toBe(200);
+  expect(DataBase.items.length).toEqual(2);
  });
 
  it("should return error if the orginial url is invalid", async () => {
