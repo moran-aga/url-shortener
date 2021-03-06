@@ -1,8 +1,26 @@
 [
- {
-  "creationDate": "2021-03-06 11:03:20",
-  "redirectCount": 18,
-  "originalUrl": "https://www.google.com",
-  "id": "LRGxzIL9L"
- }
+    {
+        "creationDate": "2021-03-06 11:03:20",
+        "redirectCount": 20,
+        "originalUrl": "https://www.google.com",
+        "id": "LRGxzIL9L"
+    },
+    {
+        "creationDate": "2021-03-06 18:27:00",
+        "redirectCount": 3,
+        "originalUrl": "https://www.youtube.com/watch?v=3oysKFglPJU&ab_channel=CodeforCause",
+        "id": "q9FuXp6ZQ"
+    },
+    {
+        "creationDate": "2021-03-06 18:35:18",
+        "redirectCount": 0,
+        "originalUrl": "https://www.google.com1225",
+        "id": "cWGVpe90A"
+    },
+    {
+        "creationDate": "2021-03-06 18:46:25",
+        "redirectCount": 1,
+        "originalUrl": "https://milog.co.il/%D7%9C%D7%97%D7%92%D7%95%D7%92",
+        "id": "5QGSzuuI3"
+    }
 ]

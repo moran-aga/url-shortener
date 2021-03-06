@@ -4,7 +4,6 @@ const cors = require("cors");
 const { urlencoded } = require("body-parser");
 const DataBase = require("./database");
 const app = express();
-// const router = express.Router();
 
 app.use(cors());
 app.use("/public", express.static(`./public`));
@@ -31,7 +30,7 @@ app.get("/:id", async (req, res) => {
  const { id } = req.params;
  let url = await DataBase.getOriginalUrl(id);
  if (url === "id not exist") {
-  return res.status(404).send("url not found");
+  return res.status(404).send("id not exist");
  } else {
   return res.redirect(url);
  }
@@ -48,4 +47,3 @@ app.get("/api/statistic/:id", async (req, res) => {
 });
 
 module.exports = app;
-// module.exports = router;

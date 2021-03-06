@@ -27,7 +27,7 @@ describe("get requests", () => {
  it("should return error if id not exist", async () => {
   const res = await request(app).get("/sNDmPXmFd123");
   expect(res.status).toBe(404);
-  expect(res.text).toBe("url not found");
+  expect(res.text).toBe("id not exist");
  });
 
  it("statistic request should return error if id not exist", async () => {
@@ -67,6 +67,7 @@ describe("post requests", () => {
    .post("/api/shorturl/new")
    .send("invalid.url.com");
   expect(res.status).toBe(400);
+  expect(res.text).toBe("invalid url");
  });
 });
 
