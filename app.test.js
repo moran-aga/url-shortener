@@ -7,19 +7,19 @@ const req = "https://www.google.com";
 
 const exceptedRes = {
  original_URL: "https://www.google.com",
- short_URL: "http://localhost:3000/LRGxzIL9L",
+ short_URL: "http://localhost:3000/ec9CCeqPX",
 };
 
 const expectedStatisticRes = {
  creationDate: "2021-03-06 11:03:20",
  redirectCount: 11 + 1,
  originalUrl: "https://www.google.com",
- id: "LRGxzIL9L",
+ id: "ec9CCeqPX",
 };
 
 describe("get requests", () => {
  it("should redirect to original url by id", async () => {
-  const res = await request(app).get("/LRGxzIL9L");
+  const res = await request(app).get("/ec9CCeqPX");
   expect(res.status).toBe(302);
   expect(res.header.location).toEqual("https://www.google.com");
  });
@@ -37,7 +37,7 @@ describe("get requests", () => {
  });
 
  it("statistic request should return with id information", async () => {
-  const res = await request(app).get("/api/statistic/LRGxzIL9L");
+  const res = await request(app).get("/api/statistic/ec9CCeqPX");
   expect(res.status).toBe(200);
   //   expect(res.body).toBe(expectedStatisticRes);
  });

@@ -1,6 +1,7 @@
 const shortId = require("shortid");
 const validUrl = require("valid-url");
 const fs = require("fs").promises;
+const dir = process.env.NODE_ENV === "test" ? "./test" : "./data";
 
 const ValidUrl = (url) => validurl.isUri(url);
 
@@ -8,12 +9,16 @@ class DataBase {
  static items = [];
 
  static async readSavedURLs() {
-  const URLdata = await fs.readFile("data.json", "utf8", function (err, data) {
-   if (err) {
-    return console.log(err);
+  const URLdata = await fs.readFile(
+   `${dir}.json`,
+   "utf8",
+   function (err, data) {
+    if (err) {
+     return console.log(err);
+    }
+    console.log(data);
    }
-   console.log(data);
-  });
+  );
 
   this.items = JSON.parse(URLdata);
  }
@@ -55,7 +60,7 @@ class DataBase {
   };
   this.items.push(item);
   fs.writeFile(
-   "data.json",
+   `${dir}.json`,
    JSON.stringify(this.items, null, 4),
    function (err) {
     console.log("data saved");
@@ -69,7 +74,7 @@ class DataBase {
   for (let item of this.items) {
    if (id === item.id) {
     item.redirectCount += 1;
-    fs.writeFile("data.json", JSON.stringify(this.items, null, 4));
+    fs.writeFile(`${dir}.json`, JSON.stringify(this.items, null, 4));
     return item.originalUrl;
    }
   }
