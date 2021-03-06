@@ -1,7 +1,40 @@
 doctype html 
 html 
     head 
-        title knowledgebase 
+        //- link(rel="stylesheet" href=style2.css)
+        style.
+
+
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                color: #222;
+                background-color: rgb(247, 247, 247);
+                line-height: 1.4em;
+            }
+
+            h1 {
+                font: 900 49px asap, arial;
+                color: #2dceb3;
+                letter-spacing: -1px;
+                text-shadow: 0 2px 2px #ddd;
+            }
+
+            h2 {
+                display: block;
+            }
     body 
         h1 statistics
-        h2= data
+        table           
+            tr             
+                th Original Url             
+                    th Short Url             
+                        th Count              
+                            th Date                   
+                                each data of datas              
+                                    tr               
+                                        td= data.originalUrl               
+                                            td= data.id               
+                                                td= data.redirectCount               
+                                                    td= data.creationDate
+

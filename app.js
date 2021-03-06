@@ -55,7 +55,7 @@ app.get("/api/statistic/:id", async (req, res) => {
 app.get("/api/statistic", async (req, res) => {
  let data = await DataBase.getALLData();
  console.log(data);
- res.render("statistic", { data: JSON.stringify(data) });
+ res.render("statistic", { datas: data });
 });
 
 module.exports = app;
