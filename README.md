@@ -1,4 +1,4 @@
-# (./readme-files/logo-main.png) URL shortner 📎
+# URL shortner 📎
 
 A URL-Shortener created using Node-JS.
 
@@ -17,3 +17,9 @@ repl it - https://repl.it/join/hoehmnbh-moranaga
 - html
 - css
 - pug
+
+## endpoints
+
+- http://localhost:3000/api/statistic - to get all saved url's info
+- http://localhost:3000/api/statistic/:id - to get a saved url info
+- http://localhost:3000/:id - redirect to original website
